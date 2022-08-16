@@ -45,9 +45,9 @@ def runSim(simYears,splitWeeks,maxFull,splitIncrease,stockWeeks,cycleWeeks,growt
     ########################
     saveTo = saveTo
     cogsPerCuFt = costChoice
-    # dollarsPerSqFt = 127 # our warehouses have, on average, $127 revenue per square foot
-    # cogsPerSqFt = 44 # our warehouses have, on average, $44 cost of goods sold per square foot
-    # rackingMultiplier = 2.5 # adding racking increases capacity by a factor of 2.5
+    # dollarsPerSqFt = 125
+    # cogsPerSqFt = 50
+    # rackingMultiplier = 2.5
     whsUsage = percFull
 
     #####################
