@@ -59,14 +59,14 @@ def runSim(simYears,splitWeeks,maxFull,splitIncrease,stockWeeks,cycleWeeks,growt
         #current OH, last OH and Order Quantity from Warehouse Space Forecast documents, split by regional contribution from Network Analysis presentation
         warehouseData = {
             #'index':['Capacity','Current OH', 'Last Period OH', 'Order Quantity', 'Cumulative OH', 'Cumulative Sales','Rent per Week','Average Labour Cost per Week','Zone Sales', 'Secondary Warehouses','Region','Outbound Mean and SD'],
-            '1' : [621000.0, 621000.0*whsUsage, 0, 0, 0, 0, (0.70/4),(169.0*30), 0, ['6'],'Eastern Canada', [19775.3,6745.7]],
-            '2' : [386400.0, 386400.0*whsUsage, 0, 0, 0, 0, (0.58/4),(157.0*30), 0, ['3'],'North West USA', [23171.2,8144.5]],
-            '3' : [667000.0, 667000.0*whsUsage, 0, 0, 0, 0, (1.09/4),(161.0*30), 0, ['2'],'South West USA', [47527.4,12672.0]],
-            '4' : [782000.0, 782000.0*whsUsage, 0, 0, 0, 0, (1.00/4),(154.0*30), 0, ['5'],'North East USA', [53140.2,14384.2]],
-            '5' : [733700.0, 733700.0*whsUsage, 0, 0, 0, 0, (0.37/4),(140.0*30), 0, ['4'],'South East USA', [51070.5,13600.6]],
-            '6' : [184000.0, 184000.0*whsUsage, 0, 0, 0, 0, (1.23/4),(181.0*30), 0, ['1'],'Western Canada', [7646.3,2881.8]],
-            '7' : [568100.0, 568100.0*whsUsage, 0, 0, 0, 0, (0.70/4),(139.0*30), 0, ['8'],'South Central USA',[9762.3,3736.7]],
-            '8' : [395600.0, 395600.0*whsUsage, 0, 0, 0, 0, (0.70/4),(158.0*30), 0, ['7'],'North Central USA',[9762.3,3736.7]]
+            '1' : [600000.0, 600000.0*whsUsage, 0, 0, 0, 0, (1.0/4),(170.0*30), 0, ['6'],'Eastern Canada', [20000,7000],
+            '2' : [400000.0, 400000.0*whsUsage, 0, 0, 0, 0, (1.5/4),(160.0*30), 0, ['3'],'North West USA', [25000,8000]],
+            '3' : [700000.0, 700000.0*whsUsage, 0, 0, 0, 0, (1.1/4),(160.0*30), 0, ['2'],'South West USA', [50000,12500]],
+            '4' : [800000.0, 800000.0*whsUsage, 0, 0, 0, 0, (1.0/4),(150.0*30), 0, ['5'],'North East USA', [50000,15000]],
+            '5' : [700000.0, 700000.0*whsUsage, 0, 0, 0, 0, (0.4/4),(140.0*30), 0, ['4'],'South East USA', [50000,12500]],
+            '6' : [200000.0, 200000.0*whsUsage, 0, 0, 0, 0, (1.2/4),(180.0*30), 0, ['1'],'Western Canada', [8000,3000]],
+            '7' : [600000.0, 600000.0*whsUsage, 0, 0, 0, 0, (0.7/4),(140.0*30), 0, ['8'],'South Central USA',[10000,4000]],
+            '8' : [400000.0, 400000.0*whsUsage, 0, 0, 0, 0, (0.7/4),(160.0*30), 0, ['7'],'North Central USA',[10000,4000]]
         }
 
         balanceSheet = {
@@ -83,14 +83,14 @@ def runSim(simYears,splitWeeks,maxFull,splitIncrease,stockWeeks,cycleWeeks,growt
            }
 
         originalCapacity = {
-            '1' : 621000.0,
-            '2' : 386400.0,
-            '3' : 667000.0,
-            '4' : 782000.0,
-            '5' : 733700.0,
-            '6' : 184000.0,
-            '7' : 568100.0,
-            '8' : 395600.0
+            '1' : 600000.0,
+            '2' : 400000.0,
+            '3' : 700000.0,
+            '4' : 800000.0,
+            '5' : 700000.0,
+            '6' : 200000.0,
+            '7' : 600000.0,
+            '8' : 400000.0
         }
 
         orderBook = {}
@@ -218,7 +218,7 @@ def runSim(simYears,splitWeeks,maxFull,splitIncrease,stockWeeks,cycleWeeks,growt
         #     except:
         #         pass
 
-    #replica of current order policy (periodic order policy)
+    #current order policy (periodic order policy)
     def orderCreator(j,lt,oc):
         for i in whs.keys():
             safetyStockSales = expon_sales(warehouseData[i][11][0],warehouseData[i][11][1])
@@ -714,10 +714,10 @@ def runSim(simYears,splitWeeks,maxFull,splitIncrease,stockWeeks,cycleWeeks,growt
     m = 0 # choose first element of dGrowthAnnual list
     splitNew = 0.5 #percentage split of over-capacity zone's demand that goes to the new warehouse
     splitOld = 1 - splitNew #remaining demand for an over-capacity zone that has been split
-    margin = 0.66 #Gross Margin %
+    margin = 0.5 #Gross Margin %
     overCapacityLimit = splitWeeks
     years = simYears #number of years of network change to simulate
-    leadtime = 2 # it takes on average 27 weeks for an order to arrive (189 days), but since we order every 2 weeks, for the purpose of the simulation after the first leadtime period, the leadtime if effectively 2 weeks
+    leadtime = 2 # Since we order every 2 weeks, for the purpose of the simulation after the first leadtime period, the leadtime if effectively 2 weeks
     ordercycle = cycleWeeks #order cycle in weeks
     weeksOfSafety = stockWeeks #always have this many weeks of sales available (weeks of safety stock)
     transferCost = 3000
