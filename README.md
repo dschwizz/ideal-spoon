@@ -1,4 +1,4 @@
-# Some projects that I am proud of and can share publicly.
+# Some projects that I am proud of
 
 ### The projects fall into four categories.
 #### Mixed Integer Linear Programs (MILPs)
