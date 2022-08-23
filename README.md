@@ -1,12 +1,17 @@
-# ideal-spoon
-## Some projects that I am proud of and can share publicly.
+# Some projects that I am proud of and can share publicly.
 
-The projects fall into four categories.
-1) Mixed Integer Linear Programs (MILPs)
-2) Clustering
-3) Discrete Event Simulation
+### The projects fall into four categories.
+#### Mixed Integer Linear Programs (MILPs)
+1) Facility Location model with a simple GUI built in TKinter.
+2) Supply Chain Network Design model launched from a macro-enabled Excel file.
 
-There are two MILPs in Category one. The first has a simple GUI built in TKinter. The second is launched from a macro-enabled Excel file.
-There are two files, in Category two, each with associated CSVs. One is an exercise in multivariate clustering. That file contains a variety of clustering algorithms. The other is an exercise in time-series clustering using the k-means clustering algorithm.
-There is one discrete event simulation file. It has a simple GUI built in Tkinter.
-There is also a toy model that generates a random maze. This was an exercise in applying a depth-first search algorithm. 
+#### Machine Learning
+1) An exercise in multivariate clustering of SKU-level sales, with associated CSV, using multiple algorithms
+2) An exercise in time-series clustering of SKU-level demand, with associated CSV, using the k-means clustering algorithm.
+3) A colab notebook with time series clustering and forecasting, as well as analysis
+
+#### Discrete Event Simulation
+1) A warehouse capacity simulation with simple GUI built in TKinter
+
+#### Other
+1) A toy model that generates and prints a random maze.
