@@ -1,6 +1,6 @@
 # to create the exe version do the following in the console
     # cd C:\Users\*******\AppData\Local\Programs\Python\Python39\    
-    # pyinstaller articleNetworkDesignMILP_gui.py -F -w -n SCN_Optimizer_v001
+    # pyinstaller NetworkDesignMILP_gui.py -F -w -n SCN_Optimizer_v001
     # see here for the pyinstaller docs: https://pyinstaller.readthedocs.io/en/stable/usage.html
 
 #%%
